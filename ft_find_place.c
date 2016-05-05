@@ -6,7 +6,7 @@
 /*   By: knzeng-e <knzeng-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/08 11:07:05 by knzeng-e          #+#    #+#             */
-/*   Updated: 2016/04/17 17:05:01 by knzeng-e         ###   ########.fr       */
+/*   Updated: 2016/05/05 13:11:20 by knzeng-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,30 +32,6 @@ int		ft_put_in_map(int line, int column, t_piece *piece, t_map *map)
 	else
 		ft_set_clearfunctions(f, map);
 	return (f[piece->forme](map, line, column));
-}
-
-int		ft_get_next_position(t_piece *pieces, t_map *map, int line, int column)
-{
-	int		i;
-	int		j;
-
-	i = line;
-	while (i < map->size)
-	{
-		j = column;
-		while (j < map->size)
-		{
-			if (ft_put_in_map(i, j, pieces, map))
-			{
-				map->begin_line = i;
-				map->begin_column = j;
-				return ((i * map->size) + j);
-			}
-			j++;
-		}
-		i++;
-	}
-	return (-1);
 }
 
 int		insert(t_piece *piece, t_map *map, int *current_piece)
